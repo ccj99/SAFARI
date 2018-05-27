@@ -2,10 +2,9 @@ tongji.py
 stdout
 run_safari.sh
 run_naive.sh
+dataset/*
 out.txt
 log.txt
-dataset/Sushi*
-dataset/Jester*
 old/
 
 # Prerequisites
