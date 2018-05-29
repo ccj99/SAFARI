@@ -3,8 +3,6 @@
 #include<stdlib.h>
 #include<math.h>
 #include "ldp.h"
-#include "ldp.h"
-
 
 void Noldp::init(double _epsilon,int _item){
 	Ldp::init(_epsilon, _item);
@@ -43,15 +41,22 @@ void SamplingLdp::init(int *_item_number,int _value_number,double epsilon,char *
             ldp[i] = new Sh;
 		else if( strcmp(method, "noldp") == 0 )
             ldp[i] = new Noldp;
+		else if( strcmp(method, "grr") == 0 )
+            ldp[i] = new Grr;
+		else if( strcmp(method, "olh") == 0 )
+            ldp[i] = new Olh;
 		else{
 			fprintf(stderr, "No %s method\n",method);
 			exit(0);
 		}
 		ldp[i]->init(epsilon, item_number[i]);
     }
-	for(int i=0;i<value_number;i++)
+	for(int i=0;i<value_number;i++){
+		if( item_number[i] == 1 )
+			continue;
 		for(int j=0;j<item_number[i];j++)
 			id.push_back(i);
+	}
 	
 	real_number = new double *[value_number+3];
 	ldp_number = new double *[value_number+3];

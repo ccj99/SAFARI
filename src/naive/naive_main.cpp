@@ -17,14 +17,14 @@ using namespace std;
 static struct option long_options[] =
 {
     {"user_number", required_argument, NULL, 0},
-    {"item", required_argument, NULL, 0},
+    {"item_number", required_argument, NULL, 0},
     {"epsilon", required_argument, NULL, 0},
     {"input_file", required_argument, NULL, 0},
     {"output_file", required_argument, NULL, 0},
     {"method", required_argument, NULL, 0}
 };
 
-int user_number=-1, item=-1, option_index;
+int user_number=-1, item_number=-1, option_index;
 char input_file[100]= "", output_file[100]= "";
 double epsilon=-1;
 Ldp *ldp = NULL;
@@ -38,14 +38,19 @@ int main(int argc, char * argv[]){
         switch (option_index){
         case 0:
             user_number = strtol(optarg, NULL, 10);
+			break;
         case 1:
-            item = strtol(optarg, NULL, 10);
-        case 2:
+            item_number = strtol(optarg, NULL, 10);
+			break;
+		case 2:
             sscanf(optarg,"%lf",&epsilon);
+			break;
         case 3:
             strcpy(input_file, optarg);
+			break;
         case 4:
             strcpy(output_file, optarg);
+			break;
 		case 5:
 			if( strcmp(optarg, "sh") == 0 )
 				ldp = new Sh;
@@ -53,26 +58,29 @@ int main(int argc, char * argv[]){
 				ldp = new Rappor;
 			else if( strcmp(optarg, "olh") == 0 )
 				ldp = new Olh;
+			else if( strcmp(optarg, "grr") == 0 )
+				ldp = new Grr;
 			else if( strcmp(optarg, "noldp") == 0 )
 				ldp = new Noldp;
-        }
+			break;
+		}
     }
 
-    if( user_number == -1 || item == -1 || epsilon == -1 || input_file[0] == 0 || output_file[0] == 0 || ldp == NULL){
+    if( user_number == -1 || item_number == -1 || epsilon == -1 || input_file[0] == 0 || output_file[0] == 0 || ldp == NULL){
         fprintf(stderr,"parameter error.");
         return -1;
     }
 	
-	kangtuo.init(item);
-	ldp->init(epsilon, kangtuo.base[item]);
-	real_dataset.init(user_number, item);
-	synthetic_dataset.init(user_number, item);
+	kangtuo.init(item_number);
+	ldp->init(epsilon, kangtuo.base[item_number]);
+	real_dataset.init(user_number, item_number);
+	synthetic_dataset.init(user_number, item_number);
 	random_init();
 	
 	real_dataset.read_file(input_file);
 	
 	for(int i=0;i<(int)real_dataset.dataset.size();i++){
-		for(int j=0;j<item;j++){
+		for(int j=0;j<item_number;j++){
 			rank[j] = real_dataset.dataset[i][j];
 		}
 		int r = kangtuo.Hash(rank);
@@ -80,7 +88,7 @@ int main(int argc, char * argv[]){
 	}
 	
 	ldp->compute();
-	for(int h=0;h<kangtuo.base[item];h++){
+	for(int h=0;h<kangtuo.base[item_number];h++){
 		kangtuo.get_hash(h, rank);
 		synthetic_dataset.put_rank(rank, ldp->ldp_number[h]);
 	}

@@ -33,12 +33,18 @@ ${SAFARI_BIN_TARGET}:${SAFARI_OBJ}
 ./obj/sampling_ldp.o:./src/sampling_ldp.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 
+./obj/grr.o:./src/grr.cpp
+	$(CC) $(CFLAGS) -c  $< -o $@
+	
 ./obj/sh.o:./src/sh.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 	
 ./obj/util.o:./src/util.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 
+./obj/lasso.o:./src/lasso.cpp
+	$(CC) $(CFLAGS) -c  $< -o $@
+	
 ./obj/olh.o:./src/olh.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 	
@@ -48,6 +54,9 @@ ${SAFARI_BIN_TARGET}:${SAFARI_OBJ}
 ./obj/phase_one.o:./src/safari/phase_one.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 
+./obj/phase_one_with_lasso.o:./src/safari/phase_one_with_lasso.cpp
+	$(CC) $(CFLAGS) -c  $< -o $@
+	
 ./obj/phase_two.o:./src/safari/phase_two.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 	

@@ -59,6 +59,15 @@ public:
     void compute();
 };
 
+class Grr: public Ldp{
+public:
+    double *C;
+    double p, q;
+	void init(double _epsilon,int _item);
+    void get(int r);
+    void compute();
+};
+
 class Noldp: public Ldp{
 public:
     void init(double _epsilon,int _item);

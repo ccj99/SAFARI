@@ -36,7 +36,6 @@ SamplingLdp sldp;
 void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical, 
 				 double epsilon, char* method, RankDataset *ldp_dataset){
 	printf("\nphase_two epsilon %f method %s\n\n", epsilon, method);
-	//fflush(stdout);
     
 	int item = real_dataset->item;
 	int set_number = hierarchical.size();
@@ -44,18 +43,12 @@ void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical,
     vector<KangTuo> kangtuos;
     vector<LeftKangTuo> leftkangtuos;
 	vector<vector<int> >res_sets;
-    
-	//printf("cccccccccccccc phase_two epsilon %f method %s\n", epsilon, method);
-	//fflush(stdout);
 	
     for(int i=0;i<set_number;i++){
         KangTuo kt;
         kt.init(hierarchical[i].size());
         kangtuos.push_back(kt);
     }
-	
-//	printf("xzcxzc phase_two epsilon %f method %s\n", epsilon, method);
-	//fflush(stdout);
 	
 	for(int i=0;i<set_number - 1;i++){
 		vector<int> res_set;
@@ -70,9 +63,6 @@ void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical,
         leftkangtuos.push_back(lkt);
     }
     
-	//printf("xxx phase_two epsilon %f method %s\n", epsilon, method);
-	//fflush(stdout);
-	
     int value_number = 2 * set_number - 1;
     int *item_number = new int[value_number+3];
     
@@ -83,10 +73,6 @@ void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical,
 			item_number[i] = leftkangtuos[i-set_number].id2rank.size();
 		}
 	}
-	
-	//printf("{}}{}{}{}\n");
-    //fflush(stdout);
-	
     
     sldp.init(item_number, value_number, epsilon, method);
     
@@ -99,8 +85,9 @@ void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical,
 
 				get_left_rank(real_dataset->dataset[d], hierarchical[i], hierarchical[i], res_rank);
 
-				for(int j=0;j<(int)res_rank.size();j++)
+				for(int j=0;j<(int)res_rank.size();j++){
 					rank[j] = res_rank[j]; 
+				}
 				
 				s[i] = kangtuos[i].Hash(rank);
 			}else{
@@ -108,99 +95,39 @@ void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical,
 				int ii = i-set_number;
 
 				get_left_rank(real_dataset->dataset[d], res_sets[ii], hierarchical[ii], res_rank);
-
-				s[i] = leftkangtuos[ii].Hash(res_rank);
-            }
-			//printf("%d %d\n",s[i],sldp.item_number[i]);
-        }
-		//printf("len 110\n");
 				
-		//for(int i=0;i<value_number;i++)
-		//	printf("%d,",s[i]); printf("\n");
-		//fflush(stdout);
+				s[i] = leftkangtuos[ii].Hash(res_rank);
+				
+            }
+        }
         sldp.get(s);
-		//printf("len 113\n");
-				//fflush(stdout);
     }
 
     sldp.compute();
-	
-	//printf("xxx{}}{}{}{}\n");
-    //fflush(stdout);
-	
+
 	for(int i=0;i<value_number;i++){
-		double sum = 0;
-		for(int j=0;j<sldp.item_number[i];j++){
-			sum += sldp.ldp_number[i][j];
-		}
-		for(int j=0;j<sldp.item_number[i];j++){
-			sldp.ldp_number[i][j] /= sum;
-		}
+		normalize(sldp.ldp_number[i], sldp.item_number[i]);
 	}
-	
-	for(int i=0;i<value_number;i++){
-		double sum = 0;
-		for(int j=0;j<sldp.item_number[i];j++){
-			sldp.ldp_number[i][j] = max(0.0, sldp.ldp_number[i][j]);
-			sum += sldp.ldp_number[i][j];
-		}
-		for(int j=0;j<sldp.item_number[i];j++){
-			sldp.ldp_number[i][j] /= sum;
-		}
-	}
-	
-	//printf("yyy{}}{}{}{}\n");
-    //fflush(stdout);
 	
 	//rebuild dataset
 	int *left_rank = new int[item+3];
 	int *right_rank = new int[item+3];
-	vector<int> left_mid_rank, right_mid_rank;	
+	vector<int> left_mid_rank, right_mid_rank;
+	
 	for(int d=0;d<(int)real_dataset->user_number;d++){
-		
-		
 		int h = random_choice(sldp.ldp_number[set_number-1], hierarchical.back().size());
-		//printf("cccc h %d {}}{}{}{}\n",h);
-		//fflush(stdout);
 		kangtuos.back().get_hash(h, right_rank);
-		//printf("cccxzxzxzxzxc h %d %d {}}{}{}{}\n",h,set_number);
-		//fflush(stdout);
 		
 		for(int i=set_number-2;i>=0;i--){
-			//printf("i %d {}}{}{}{}\n",i);
-			//fflush(stdout);
-			
 			int left_len = hierarchical[i].size();
 			int all_len  = res_sets[i].size();
-			int h = random_choice(sldp.ldp_number[i], left_len);
-			
-			//printf("xx i %d {}}{}{}{}\n",i);
-			//fflush(stdout);
-			
+			int h = random_choice(sldp.ldp_number[i], kangtuos[i].base[kangtuos[i].n]);
 			kangtuos[i].get_hash(h, left_rank);
 			
-			//printf("ccx i %d {}}{}{}{}\n",i);
-			//fflush(stdout);
-			
 			h = random_choice(sldp.ldp_number[set_number+i], leftkangtuos[i].id2rank.size());
-			
-			//printf("h %d {}}{}{}{}\n",h);
-			//fflush(stdout);
 			leftkangtuos[i].get_hash(h, left_mid_rank);
-			//printf("xxxx h %d {}}{}{}{}\n",h);
-			//for(int i=0;i<left_len;i++)
-			//	printf("%d,",left_rank[i]);printf("\n");
-			
-			//for(int i=0;i<all_len-left_len;i++)
-			//	printf("%d,",right_rank[i]);printf("\n");
-			
+
 			get_other_rank(left_mid_rank, all_len, right_mid_rank);
-			
-			//for(int i=0;i<left_mid_rank.size();i++)
-			//	printf("%d,",left_mid_rank[i]);printf("\n");
-			//for(int i=0;i<right_mid_rank.size();i++)
-			//	printf("%d,",right_mid_rank[i]);printf("\n");
-			
 			
 			for(int i=0;i<all_len;i++){
 				if( i < left_len ){
@@ -211,30 +138,23 @@ void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical,
 			}
 			for(int i=0;i<all_len;i++)
 				right_rank[i] = rank[i];
-			
-			//for(int i=0;i<all_len;i++)
-			//	printf("%d,",right_rank[i]);printf("\n");
-			//printf("------------------------");
 		}
 		
 		for(int i=0;i<item;i++){
 			rank[ res_sets[0][i] ] = right_rank[i];
 		}
 		
-		///for(int i=0;i<item;i++){
-		//	printf("%d ",rank[i]);
-		//}printf(">>>>\n");
-		
 		ldp_dataset->put_rank(rank, 1.0/real_dataset->user_number);
 	}
 }
 
 int random_choice(double *pro,int len){
-	double p = rand()*1.0/RAND_MAX;
+	double p = random_p();
 	for(int i=0;i<len;i++){
 		p -= pro[i];
-		if( p < 0 )
+		if( p < 0 ){
 			return i;
+		}
 	}
 	return len-1;
 }

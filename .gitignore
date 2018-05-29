@@ -3,6 +3,7 @@ stdout
 run_safari.sh
 run_naive.sh
 dataset/*
+dataset.zip
 out.txt
 log.txt
 old/

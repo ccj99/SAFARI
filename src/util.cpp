@@ -10,6 +10,8 @@
 
 using namespace std;
 
+const double eps = 1e-8;
+
 void random_init(){
 	struct timeb timeSeed;
 	ftime(&timeSeed);
@@ -18,6 +20,37 @@ void random_init(){
 
 double random_p(){
 	return (1.0*rand()*RAND_MAX+rand() )/RAND_MAX/RAND_MAX;
+}
+
+double mutual_information(double *px,double *py,double *pxy,int lenx,int leny){
+	double mi = 0;
+	for(int i=0;i<lenx;i++)
+		for(int j=0;j<leny;j++){
+			if( fabs(px[i]) < eps || fabs(py[j]) < eps || 
+				fabs(pxy[i*leny+j]) < eps )
+				continue;
+			mi += pxy[i*leny+j] * log(pxy[i*leny+j] / px[i] / py[j]);
+		}
+	return mi;
+}
+
+void normalize(double *x,int len){
+	double sum = 0;
+	for(int i=0;i<len;i++){
+		sum += x[i];
+	}
+	for(int i=0;i<len;i++){
+		x[i] /= sum;
+	}
+	
+	sum = 0;
+	for(int i=0;i<len;i++){
+		x[i] = max(x[i], 0.0);
+		sum += x[i];
+	}
+	for(int i=0;i<len;i++){
+		x[i] /= sum;
+	}
 }
 
 void KangTuo::init(int nn){
