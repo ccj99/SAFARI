@@ -146,6 +146,27 @@ void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical,
 		
 		ldp_dataset->put_rank(rank, 1.0/real_dataset->user_number);
 	}
+	
+	/*for(int i=0;i<value_number;i++){
+		printf("-----%d-----\n",i);
+		if( i < set_number ){
+			for(int j=0;j<item_number[i];j++){
+				printf("%f >> ",sldp.ldp_number[i][j]);
+				kangtuos[i].get_hash(j, left_rank);
+				for(int z=0;z<kangtuos[i].n;z++){
+					printf("%d,",left_rank[z]);
+				}printf("\n");
+			}
+		}else{
+			for(int j=0;j<item_number[i];j++){
+				printf("%f >> ",sldp.ldp_number[i][j]);
+				for(int z=0;z<leftkangtuos[i-set_number].id2rank[j].size();z++){
+					printf("%d,",leftkangtuos[i-set_number].id2rank[j][z]);
+				}printf("\n");
+			}
+			
+		}
+	}*/
 }
 
 int random_choice(double *pro,int len){

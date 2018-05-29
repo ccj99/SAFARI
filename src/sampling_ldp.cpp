@@ -24,10 +24,12 @@ void Noldp::compute(){
 		ldp_number[i] = real_number[i];
 }
 
-void SamplingLdp::init(int *_item_number,int _value_number,double epsilon,char *method){
+void SamplingLdp::init(int *_item_number,int _value_number,double epsilon,char *_method){
 	value_number = _value_number;
 	user_number = 0;
 	item_number = new int[value_number+3];
+	
+	strcpy(method, _method);
 	
 	for(int i=0;i<value_number;i++)
 		item_number[i] = _item_number[i];
@@ -86,10 +88,13 @@ void SamplingLdp::compute(){
 		for(int j=0;j<item_number[i];j++)
 			ldp_number[i][j] = ldp[i]->ldp_number[j];  
 	}
-	
 	for(int i=0;i<value_number;i++){
 		for(int j=0;j<item_number[i];j++){
 			real_number[i][j] /= user_number;
+
+			if( strcmp(method, "noldp") == 0 ){
+				ldp_number[i][j] = real_number[i][j];
+			}
 		}
 	}
 }

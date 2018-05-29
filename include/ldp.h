@@ -81,6 +81,7 @@ public:
 	int *item_number, value_number, user_number;
 	vector<int>id;
 	double **real_number, **ldp_number;
+	char method[20];
 	void init(int *_item_number,int _value_number,double epsilon,char *method);
 	void get(int *item);
 	void compute();
