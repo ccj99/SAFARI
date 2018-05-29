@@ -38,7 +38,7 @@ make clean
 
 ## Run the naive model
 ```bash
-./bin/naive --user_number 20000 --item_number 5 --epsilon 1.0 --input_file ./dataset/Jester_user_num-50000-item_num-5.txt --output_file out.txt --method rappor
+./bin/naive --user_number 1000 --item_number 4 --epsilon 1.0 --input_file ./demo_dataset.txt --output_file out.txt --method rappor
 ```
 > Explanation of the parameters :  
 >> user_number : the number of data in dataset file.  
@@ -50,7 +50,7 @@ make clean
 
 ## Run the safari model
 ```bash
-./bin/safari --user_number 20000 --item_number 5 --k 1 --epsilon1 1.0 --epsilon2 1.0 --input_file ./dataset/Jester_user_num-20000-item_num-5.txt --output_file out.txt --method rappor --use_lasso yes
+./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method rappor --use_lasso yes
 ```
 > Explanation of the parameters :  
 >> user_number : the number of data in dataset file.  
