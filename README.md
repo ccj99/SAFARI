@@ -41,27 +41,27 @@ make clean
 ./bin/naive --user_number 1000 --item_number 4 --epsilon 1.0 --input_file ./demo_dataset.txt --output_file out.txt --method rappor
 ```
 > Explanation of the parameters :  
->> user_number : the number of data in dataset file.  
->> item_number : the number of variable in one data.  
->> epsilon : The privacy budget.  
->> input_file : The file name of dataset file.  
->> output_file : The file name of output file.  
->> method : The method of local differential privacy. You can chosse "rappor", "sh", "olh", "grr" or "noldp" (i.e. don't use local differential privacy).
+>> **user_number** : the number of data in dataset file.  
+>> **item_number** : the number of variable in one data.  
+>> **epsilon** : The privacy budget.  
+>> **input_file** : The file name of dataset file.  
+>> **output_file** : The file name of output file.  
+>> **method** : The method of local differential privacy. You can chosse "rappor", "sh", "olh", "grr" or "noldp" (i.e. don't use local differential privacy).
 
 ## Run the safari model
 ```bash
 ./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method rappor --use_lasso yes
 ```
 > Explanation of the parameters :  
->> user_number : the number of data in dataset file.  
->> item_number : the number of variable in one data.  
->> k : Build a k-thin chain model in the first phase (i.e. the cliques are are never allowed to have more than k variables).   
->> epsilon1 : The privacy budget in the first phase.  
->> epsilon2 : The privacy budget in the second phase.  
->> input_file : The file name of dataset file.  
->> output_file : The file name of output file.  
->> method : The method of local differential privacy. You can chosse "rappor", "sh", "grr" or "noldp" (i.e. don't use local differential privacy).  
->> use_lasso : "yes" or "no", which means whether you use lasso in the first phase.
+>> **user_number** : the number of data in dataset file.  
+>> **item_number** : the number of variable in one data.  
+>> **k** : Build a k-thin chain model in the first phase (i.e. the cliques are are never allowed to have more than k variables).   
+>> **epsilon1** : The privacy budget in the first phase.  
+>> **epsilon2** : The privacy budget in the second phase.  
+>> **input_file** : The file name of dataset file.  
+>> **output_file** : The file name of output file.  
+>> **method** : The method of local differential privacy. You can chosse "rappor", "sh", "grr" or "noldp" (i.e. don't use local differential privacy).  
+>> __use_lasso__ : "yes" or "no", which means whether you use lasso in the first phase.
 
 # Documentation
 - ./include/dataset.h ./bin/dataset.cpp :  
