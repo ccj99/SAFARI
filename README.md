@@ -1,6 +1,6 @@
 # SAFARI(paper name)
 
-This is a C++ implementation of SAFARI in "[SAFARI (paper name)](https://arxiv.org/abs/1706.03762)". 
+This is a C++ implementation of SAFARI in "[SAFARI (paper name)](https://github.com/cheng-lab-at-bupt/SAFARI/tree/master/include)". 
 
 If there is any suggestion or error, feel free to fire an issue to let me know. :)
 
