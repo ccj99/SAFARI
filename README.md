@@ -69,15 +69,19 @@ make clean
 - **./include/lasso.h ./bin/lasso.cpp** :  
     The implementation of lasso regression.
 - **./include/ldp.h ./bin/grr.cpp ./bin/rappor.cpp ./bin/olh.cpp ./bin/sh.cpp** :  
-    The implementation of four methods of local differential privacy. (Rappor, SH, GRR, OLH)
+    The implementation of four methods of local differential privacy. (rappor.cpp, sh.cpp, grr.cpp and olh.cpp correspond to Rappor, SH, GRR, OLH)
 - **./include/util.h ./src/util.cpp** :  
     Some tools, sush as calculating mutual information and Cantor expansion.
 - **./include/safari.h** :  
     The implementation of Safari. 
-    - **./src/safair/phase_one.cpp**: The implementation of the first phase without lasso. 
-    - **./src/safair/phase_one_with_lasso.cpp**: The implementation of the first phase with lasso. 
-    - **./src/safair/learning_hierarchi.cpp**: The implementation of learning the k-thin chain model.
-    - **./src/safair/phase_two.cpp** : The implementation of the second phase and rebuild ranking dataset. 
+    - **./src/safair/phase_one.cpp** :  
+        The implementation of the first phase without lasso. 
+    - **./src/safair/phase_one_with_lasso.cpp** :  
+        The implementation of the first phase with lasso. 
+    - **./src/safair/learning_hierarchi.cpp** :  
+        The implementation of learning the k-thin chain model.
+    - **./src/safair/phase_two.cpp** :  
+        The implementation of the second phase and rebuild ranking dataset. 
 - **./src/naive/naive_main.cpp** :  
     The main of naive method.
 - **./src/safari/safari_main.cpp** :  
