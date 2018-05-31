@@ -10,7 +10,7 @@ If there is any suggestion or error, feel free to fire an issue to let me know. 
 # Usage
 
 
-## Download ranking dataset
+## Ranking dataset
 
 The example below uses the ranking dataset extracted from the Sushi dataset and Jester dataset. From the Sushi dataset, we generate dataset with 5,000 user and the number of items ranging from 3 to 10. Similary, from the Jester dataset, we generate dataset with 20,000 users and the number of items ranging from 3 to 10. The path of the ranking dataset is:
 ```bash
@@ -72,11 +72,12 @@ make clean
     The implementation of four methods of local differential privacy. (Rappor, SH, GRR, OLH)
 - **./include/util.h ./src/util.cpp** :  
     Some tools, sush as calculating mutual information and Cantor expansion.
-- **./include/safari.h ./src/safair/phase_one.cpp ./src/safair/phase_one_with_lasso.cpp ./src/safair/phase_two.cpp ./src/safair/learning_hierarchi.cpp** :  
-    The implementation of Safari. phase_one.cpp in the first phase without lasso. 
-    phase_one_with_lasso.cpp in the first phase with lasso. 
-    learning_hierarchi.cpp learn the k-thin chain model.
-    phase_two.cpp in the second phase without lasso. 
+- **./include/safari.h** :  
+    The implementation of Safari. 
+    - **./src/safair/phase_one.cpp**: The implementation of the first phase without lasso. 
+    - **./src/safair/phase_one_with_lasso.cpp**: The implementation of the first phase with lasso. 
+    - **./src/safair/learning_hierarchi.cpp**: The implementation of learning the k-thin chain model.
+    - **./src/safair/phase_two.cpp** : The implementation of the second phase and rebuild ranking dataset. 
 - **./src/naive/naive_main.cpp** :  
     The main of naive method.
 - **./src/safari/safari_main.cpp** :  
