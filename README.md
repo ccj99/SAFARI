@@ -12,7 +12,7 @@ If there is any suggestion or error, feel free to fire an issue to let me know. 
 
 ## Ranking dataset
 
-The example below uses the ranking dataset extracted from the Sushi dataset and Jester dataset. From the Sushi dataset, we generate dataset with 5,000 user and the number of items ranging from 3 to 10. Similary, from the Jester dataset, we generate dataset with 20,000 users and the number of items ranging from 3 to 10. The path of the ranking dataset is:
+The example below uses the ranking dataset extracted from the [Sushi dataset](http://www.kamishima.net/sushi/) and [Jester dataset](http://goldberg.berkeley.edu/jester-data/). From the Sushi dataset, we generate dataset with 5,000 user and the number of items ranging from 3 to 10. Similary, from the Jester dataset, we generate dataset with 20,000 users and the number of items ranging from 3 to 10. The path of the ranking dataset is:
 ```bash
 ./dataset
 ```
