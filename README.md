@@ -42,7 +42,7 @@ cd ./SAFARI_code/
 >> **output_file** : the file name of output file.  
 >> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "olh", "grr" or "noldp" (i.e. don't use local differential privacy).
 
-## 2) Guideline for running the SAFARI model
+## 2) Guideline for running the SAFARI
 ```bash
 cd ./SAFARI_code/
 ./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method rappor --use_lasso yes
