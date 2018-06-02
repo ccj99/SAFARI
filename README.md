@@ -28,7 +28,7 @@ make clean
 ```
 
 
-## Run the naive model 
+## 1) Guide for running the baseline approaches 
 ```bash
 cd ./SAFARI_code/
 ./bin/naive --user_number 1000 --item_number 4 --epsilon 1.0 --input_file ./demo_dataset.txt --output_file out.txt --method rappor
@@ -41,7 +41,7 @@ cd ./SAFARI_code/
 >> **output_file** : the file name of output file.  
 >> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "olh", "grr" or "noldp" (i.e. don't use local differential privacy).
 
-## Run the SAFARI model
+## 2) Guide for running the SAFARI model
 ```bash
 cd ./SAFARI_code/
 ./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method rappor --use_lasso yes
@@ -59,27 +59,27 @@ cd ./SAFARI_code/
 
 # Documentation
 - **./include/dataset.h ./bin/dataset.cpp** :  
-    Synthesize ranking dataset, and examine the accuracy of the first-order marginals and the second-order marginals of the synthetic ranking dataset.
+    Synthesize a ranking dataset, and examine the accuracy of the first-order marginals and the second-order marginals of the synthetic ranking dataset.
 - **./include/lasso.h ./bin/lasso.cpp** :  
     The implementation of lasso regression model.
 - **./include/ldp.h ./bin/grr.cpp ./bin/rappor.cpp ./bin/olh.cpp ./bin/sh.cpp** :  
-    The implementation of four methods of local differential privacy. (rappor.cpp, sh.cpp, grr.cpp and olh.cpp correspond to Rappor, SH, GRR, OLH)
+    The implementation of Rappor, SH, OLH and GRR. (rappor.cpp, sh.cpp, olh.cpp and grr.cpp)
 - **./include/util.h ./src/util.cpp** :  
     Some tools, sush as calculating mutual information and Cantor expansion.
 - **./include/safari.h** :  
     The implementation of SAFARI. 
-    - **./src/safair/phase_one.cpp** :  
-        The implementation of the **Rule I*** (without lasso regression model). 
     - **./src/safair/phase_one_with_lasso.cpp** :  
-        The implementation of the **Rule I** (with lasso regression model). 
+        The implementation of the Phase 1 of SAFARI (with lasso regression model). 
+    - **./src/safair/phase_one.cpp** :  
+        The implementation of another version of Phase 1 of SAFARI (without lasso regression model). 
     - **./src/safair/learning_hierarchi.cpp** :  
-        The implementation of learning the k-thin chain model in **Rule I**.
+        The implementation of construct the k-thin chain in Phase 2 of SAFARI.
     - **./src/safair/phase_two.cpp** :  
-        The implementation of the **Rule II** and synthesize ranking dataset. 
+        The implementation of Phase 4 and 5 of SAFARI.
 - **./src/naive/naive_main.cpp** :  
-    The main function of naive method.
+    The main function used for baseline approaches.
 - **./src/safari/safari_main.cpp** :  
-    The main function of SAFARI.
+    The main function used for SAFARI.
 
 
 
