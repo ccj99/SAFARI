@@ -55,7 +55,7 @@ make clean
 > Explanation of the parameters :  
 >> **user_number** : the total number of users in dataset file.   
 >> **item_number** : the number of item in the item set.  
->> **k** : Build a k-thin chain model in the **Rule I** (i.e. the cliques are are never allowed to have more than k variables).   
+>> **k** : construct a k-thin chain model in the **Rule I** (i.e. the cliques are are never allowed to have more than k variables).   
 >> **epsilon1** : the different privacy budget in the **Rule I**.  
 >> **epsilon2** : the different privacy budget in the **Rule II**.  
 >> **input_file** : the file name of dataset file.  
