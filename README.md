@@ -1,6 +1,6 @@
 # Collecting Preference Rankings under Local Differential Privacy
  
-This is a C++ implementation of SAFARI and other naive method mentioned in "[Collecting Preference Rankings under Local Differential Privacy](https://github.com/cheng-lab-at-bupt/SAFARI)". 
+Authors' C++ implementation of **SAFARI** and other naive method mentioned in "[Collecting Preference Rankings under Local Differential Privacy](https://github.com/cheng-lab-at-bupt/SAFARI)". 
 
 If there is any suggestion or error, feel free to fire an issue to let me know. :)
 
