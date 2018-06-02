@@ -28,7 +28,7 @@ The example below uses the ranking dataset extracted from the [Sushi dataset](ht
 ## Build code
 You can build the code in the following way:
 ```bash
-cd /SAFARI_code/
+cd ./SAFARI_code/
 mkdir obj
 mkdir bin
 make ./bin/naive 
@@ -39,7 +39,7 @@ make clean
 
 ## Run the naive model 
 ```bash
-cd /SAFARI_code/
+cd ./SAFARI_code/
 ./bin/naive --user_number 1000 --item_number 4 --epsilon 1.0 --input_file ./demo_dataset.txt --output_file out.txt --method rappor
 ```
 > Explanation of the parameters :  
@@ -52,7 +52,7 @@ cd /SAFARI_code/
 
 ## Run the SAFARI model
 ```bash
-cd /SAFARI_code/
+cd ./SAFARI_code/
 ./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method rappor --use_lasso yes
 ```
 > Explanation of the parameters :  
