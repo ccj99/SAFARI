@@ -1,6 +1,6 @@
 # SAFARI(paper name)
 
-This is a C++ implementation of SAFARI in "[SAFARI (paper name)](https://github.com/cheng-lab-at-bupt/SAFARI/tree/master/include)". 
+This is a C++ implementation of SAFARI in "[SAFARI (paper name)](https://github.com/cheng-lab-at-bupt/SAFARI)". 
 
 If there is any suggestion or error, feel free to fire an issue to let me know. :)
 
@@ -17,7 +17,7 @@ The example below uses the ranking dataset extracted from the [Sushi dataset](ht
 ./dataset
 ```
 
-> You can also use your own dataset, your  dataset should meet the following format. Each line in your dataset file should be one of user's data. The data format is item's rank (i.e. a permutation of [0~n-1]).
+> You can also use your own dataset, your  dataset should meet the following format. Each line in your dataset file should be one of user's data. Each user possesses a preference ranking data of the items in items set.
 ```bash
 0 1 3 2
 3 2 0 1
@@ -65,7 +65,7 @@ make clean
 
 # Documentation
 - **./include/dataset.h ./bin/dataset.cpp** :  
-    Build ranking dataset, and evaluate the difference between two ranking datasets.
+    Synthesize ranking dataset, and examine the accuracy of the first-order marginals and the second-order marginals of the synthetic ranking dataset.
 - **./include/lasso.h ./bin/lasso.cpp** :  
     The implementation of lasso regression.
 - **./include/ldp.h ./bin/grr.cpp ./bin/rappor.cpp ./bin/olh.cpp ./bin/sh.cpp** :  
@@ -83,9 +83,9 @@ make clean
     - **./src/safair/phase_two.cpp** :  
         The implementation of the second phase and rebuild ranking dataset. 
 - **./src/naive/naive_main.cpp** :  
-    The main of naive method.
+    The main function of naive method.
 - **./src/safari/safari_main.cpp** :  
-    The main of safari method.
+    The main function of SAFARI.
 
 
 
