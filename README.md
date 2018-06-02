@@ -1,32 +1,23 @@
 # Collecting Preference Rankings under Local Differential Privacy
  
-Authors' C++ implementation of **SAFARI** and other naive method mentioned in "[Collecting Preference Rankings under Local Differential Privacy](https://github.com/cheng-lab-at-bupt/SAFARI/blob/master/Collecting%20Preference%20Rankings%20under%20Local%20Differential%20Privacy%20(technical%20report).pdf)". 
+We show the technical report and source code of **SAFARI**  in "[Collecting Preference Rankings under Local Differential Privacy](https://github.com/cheng-lab-at-bupt/SAFARI/blob/master/Collecting%20Preference%20Rankings%20under%20Local%20Differential%20Privacy%20(technical%20report).pdf)". 
 
-If there is any suggestion or error, feel free to fire an issue to let me know. :)
 
-# Requirement
+# Experimental Requirement
 - g++  5.1.0+
 
 # Usage
-
+Here we present an example of running experimets in the technical report.
 
 ## Ranking dataset
 
-The example below uses the ranking dataset extracted from the [Sushi dataset](http://www.kamishima.net/sushi/) and [Jester dataset](http://goldberg.berkeley.edu/jester-data/). From the Sushi dataset, we generate dataset with 5,000 user and the number of items ranging from 3 to 10. Similary, from the Jester dataset, we generate dataset with 20,000 users and the number of items ranging from 3 to 10. The path of the ranking dataset is:
+We provide the test ranking datasets in our experiments, which are extracted from the [Sushi dataset](http://www.kamishima.net/sushi/) and [Jester dataset](http://goldberg.berkeley.edu/jester-data/). The path of these ranking datasets is:
 ```bash
 ./SAFARI_code/dataset
 ```
 
-> You can also use your own dataset, your  dataset should meet the following format. Each line in your dataset file should be one of user's data. Each user possesses a preference ranking data of the items in items set.
-```bash
-0 1 3 2
-3 2 0 1
-1 0 2 3
-...
-```
-
 ## Build code
-You can build the code in the following way:
+You can build the code in the following steps:
 ```bash
 cd ./SAFARI_code/
 mkdir obj
