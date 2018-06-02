@@ -14,7 +14,7 @@ If there is any suggestion or error, feel free to fire an issue to let me know. 
 
 The example below uses the ranking dataset extracted from the [Sushi dataset](http://www.kamishima.net/sushi/) and [Jester dataset](http://goldberg.berkeley.edu/jester-data/). From the Sushi dataset, we generate dataset with 5,000 user and the number of items ranging from 3 to 10. Similary, from the Jester dataset, we generate dataset with 20,000 users and the number of items ranging from 3 to 10. The path of the ranking dataset is:
 ```bash
-./dataset
+./SAFARI_code/dataset
 ```
 
 > You can also use your own dataset, your  dataset should meet the following format. Each line in your dataset file should be one of user's data. Each user possesses a preference ranking data of the items in items set.
@@ -28,6 +28,7 @@ The example below uses the ranking dataset extracted from the [Sushi dataset](ht
 ## Build code
 You can build the code in the following way:
 ```bash
+cd /SAFARI_code/
 mkdir obj
 mkdir bin
 make ./bin/naive 
@@ -38,6 +39,7 @@ make clean
 
 ## Run the naive model 
 ```bash
+cd /SAFARI_code/
 ./bin/naive --user_number 1000 --item_number 4 --epsilon 1.0 --input_file ./demo_dataset.txt --output_file out.txt --method rappor
 ```
 > Explanation of the parameters :  
@@ -50,6 +52,7 @@ make clean
 
 ## Run the SAFARI model
 ```bash
+cd /SAFARI_code/
 ./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method rappor --use_lasso yes
 ```
 > Explanation of the parameters :  
