@@ -59,27 +59,27 @@ cd ./SAFARI_code/
 
 # Documentation
 - **./include/dataset.h ./bin/dataset.cpp** :  
-    Synthesize a ranking dataset, and examine the accuracy of the first-order marginals and the second-order marginals of the synthetic ranking dataset
+    synthesizng a ranking dataset, examining the accuracy of the first-order marginals and the second-order marginals of the synthetic ranking dataset
 - **./include/lasso.h ./bin/lasso.cpp** :  
-    The implementation of lasso regression model
+    implementation of lasso regression model
 - **./include/ldp.h ./bin/grr.cpp ./bin/rappor.cpp ./bin/olh.cpp ./bin/sh.cpp** :  
-    The implementation of Rappor, SH, OLH and GRR. (rappor.cpp, sh.cpp, olh.cpp and grr.cpp)
+    implementation of Rappor, SH, OLH and GRR. (rappor.cpp, sh.cpp, olh.cpp and grr.cpp)
 - **./include/util.h ./src/util.cpp** :  
-    Tripletwise mutual information computation, data structure of rankings (Cantor expansion)
+    tripletwise mutual information computation, data structure of rankings (Cantor expansion)
 - **./include/safari.h** :  
-    The implementation of SAFARI
+    implementation of SAFARI
     - **./src/safair/phase_one_with_lasso.cpp** :  
-        The implementation of the Phase 1 of SAFARI (with lasso regression model)
+        implementation of the Phase 1 of SAFARI (with lasso regression model)
     - **./src/safair/phase_one.cpp** :  
-        The implementation of another version of Phase 1 of SAFARI (without lasso regression model)
+        implementation of another version of Phase 1 of SAFARI (without lasso regression model)
     - **./src/safair/learning_hierarchi.cpp** :  
-        The implementation of construct the k-thin chain in Phase 2 of SAFARI
+        implementation of construct the k-thin chain in Phase 2 of SAFARI
     - **./src/safair/phase_two.cpp** :  
-        The implementation of Phase 4 and 5 of SAFARI
+        implementation of Phase 4 and 5 of SAFARI
 - **./src/naive/naive_main.cpp** :  
-    The main function used for baseline approaches
+    main function used for baseline approaches
 - **./src/safari/safari_main.cpp** :  
-    The main function used for SAFARI
+    main function used for SAFARI
 
 
 
