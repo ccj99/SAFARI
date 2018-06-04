@@ -7,7 +7,7 @@ The source code of **SAFARI** is publicly available.
 - g++  5.1.0+
 
 # Usage
-An example of running experimets in the technical report is shown as follows.
+An example of running the experimets is shown as follows.
 
 ## Ranking dataset
 
@@ -34,12 +34,12 @@ cd ./SAFARI_code/
 ./bin/naive --user_number 1000 --item_number 4 --epsilon 1.0 --input_file ./demo_dataset.txt --output_file out.txt --method rappor
 ```
 > Explanation of the parameters :  
->> **user_number** : the total number of users in dataset file.  
->> **item_number** : the number of item in the item set.  
->> **epsilon** : the different privacy budget.  
->> **input_file** : the file name of dataset file.  
->> **output_file** : the file name of output file.  
->> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "olh", "grr" or "noldp" (i.e. don't use local differential privacy).
+>> **user_number** : the total number of users  
+>> **item_number** : the total number of items   
+>> **epsilon** : the privacy budget  
+>> **input_file** : the file name of dataset  
+>> **output_file** : the file name of output  
+>> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "olh", "grr" or "noldp" (i.e. don't use local differential privacy)
 
 ## 2) Guideline for running SAFARI
 ```bash
@@ -47,15 +47,15 @@ cd ./SAFARI_code/
 ./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method rappor --use_lasso yes
 ```
 > Explanation of the parameters :  
->> **user_number** : the total number of users in dataset file.   
->> **item_number** : the number of item in the item set.  
->> **k** : construct a k-thin chain model in the **Rule I** (i.e. the cliques are are never allowed to have more than k variables).   
->> **epsilon1** : the different privacy budget in the **Rule I**.  
->> **epsilon2** : the different privacy budget in the **Rule II**.  
->> **input_file** : the file name of dataset file.  
->> **output_file** : the file name of output file.  
->> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "grr" or "noldp" (i.e. don't use local differential privacy).  
->> **use_lasso** : "yes" or "no", which means whether you use lasso regression model (i.e. **Rule I** or **Rule I***).
+>> **user_number** : the total number of users   
+>> **item_number** : the number of item in the item set  
+>> **k** : construct a k-thin chain model in the **Rule I** (i.e. the cliques are are never allowed to have more than k variables)   
+>> **epsilon1** : the privacy budget in the **Rule I**  
+>> **epsilon2** : the privacy budget in the **Rule II**  
+>> **input_file** : the file name of dataset  
+>> **output_file** : the file name of output  
+>> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "grr" or "noldp" (i.e. don't use local differential privacy)  
+>> **use_lasso** : "yes" or "no", which means whether you use lasso regression model (i.e. **Rule I** or **Rule I***)
 
 # Documentation
 - **./include/dataset.h ./bin/dataset.cpp** :  
