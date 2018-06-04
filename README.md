@@ -55,7 +55,7 @@ cd ./SAFARI_code/
 >> **input_file** : the file name of dataset  
 >> **output_file** : the file name of output  
 >> **method** : frequency estimation for multiple attributes. (e.g., "grr" represents SAFA, "sh" represents harmony)  
->> **use_lasso** : "yes" or "no", which means whether you use lasso regression model (i.e. **Rule I** or **Rule I***)
+>> **use_lasso** : "yes" or "no", which represents whether you use lasso regression model (i.e. **Rule I** or **Rule I***)
 
 # Documentation
 - **./include/dataset.h ./bin/dataset.cpp** :  
