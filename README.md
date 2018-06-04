@@ -39,7 +39,7 @@ cd ./SAFARI_code/
 >> **epsilon** : the privacy budget  
 >> **input_file** : the file name of dataset  
 >> **output_file** : the file name of output  
->> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "olh", "grr" or "noldp" (i.e. don't use local differential privacy)
+>> **method** : the baseline approach ("rappor", "sh" or "olh")  
 
 ## 2) Guideline for running SAFARI
 ```bash
