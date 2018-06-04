@@ -49,12 +49,12 @@ cd ./SAFARI_code/
 > Explanation of the parameters :  
 >> **user_number** : the total number of users   
 >> **item_number** : the number of item in the item set  
->> **k** : construct a k-thin chain model in the **Rule I** (i.e. the cliques are are never allowed to have more than k variables)   
->> **epsilon1** : the privacy budget in the **Rule I**  
->> **epsilon2** : the privacy budget in the **Rule II**  
+>> **k** : the maximum size of a leaf item set   
+>> **epsilon1** : the privacy budget in the **Phase 2**  
+>> **epsilon2** : the privacy budget in the **Phase 4**  
 >> **input_file** : the file name of dataset  
 >> **output_file** : the file name of output  
->> **method** : the method of local differential privacy. You can chosse "rappor", "sh", "grr" or "noldp" (i.e. don't use local differential privacy)  
+>> **method** : frequency estimation for multiple attributes. (e.g., "grr" represents SAFA, "sh" represents harmony)  
 >> **use_lasso** : "yes" or "no", which means whether you use lasso regression model (i.e. **Rule I** or **Rule I***)
 
 # Documentation
