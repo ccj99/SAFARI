@@ -1,23 +1,23 @@
 # Collecting Preference Rankings under Local Differential Privacy
  
 [Collecting Preference Rankings under Local Differential Privacy (technical report)](https://github.com/cheng-lab-at-bupt/SAFARI/blob/master/Collecting%20Preference%20Rankings%20under%20Local%20Differential%20Privacy%20(technical%20report).pdf)  
-
+The source code of **SAFARI** is publicly available.
 
 # Experimental Requirement
 - g++  5.1.0+
 
 # Usage
-Here we present an example of running experimets in the technical report.
+An example of running experimets in the technical report is shown as follows.
 
 ## Ranking dataset
 
-We provide the test ranking datasets in our experiments, which are extracted from the [Sushi dataset](http://www.kamishima.net/sushi/) and [Jester dataset](http://goldberg.berkeley.edu/jester-data/). The path of these ranking datasets is:
+The test ranking datasets in the experiments, which are extracted from the [Sushi dataset](http://www.kamishima.net/sushi/) and [Jester dataset](http://goldberg.berkeley.edu/jester-data/). The path of these ranking datasets is:
 ```bash
 ./SAFARI_code/dataset
 ```
 
 ## Build code
-You can build the code in the following steps:
+The code can be built by the following steps:
 ```bash
 cd ./SAFARI_code/
 mkdir obj
