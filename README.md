@@ -3,7 +3,7 @@
 [Collecting Preference Rankings under Local Differential Privacy (technical report)](https://github.com/cheng-lab-at-bupt/SAFARI/blob/master/Collecting%20Preference%20Rankings%20under%20Local%20Differential%20Privacy%20(technical%20report).pdf)  
 The source code of the **SAFARI** approach is publicly available.
 
-# Experimental Requirement
+# Experimental requirement
 - g++  5.1.0+
 
 # Usage
