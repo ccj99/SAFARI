@@ -1,13 +1,13 @@
 # Collecting Preference Rankings under Local Differential Privacy
  
 [Collecting Preference Rankings under Local Differential Privacy (technical report)](https://github.com/cheng-lab-at-bupt/SAFARI/blob/master/Collecting%20Preference%20Rankings%20under%20Local%20Differential%20Privacy%20(technical%20report).pdf)  
-The source code of **SAFARI** is publicly available.
+The source code of the **SAFARI** approach is publicly available.
 
 # Experimental Requirement
 - g++  5.1.0+
 
 # Usage
-An example of running the experimets is shown as follows.
+An example of running the experiments is shown as follows.
 
 ## Ranking dataset
 
@@ -50,8 +50,8 @@ cd ./SAFARI_code/
 >> **user_number** : the total number of users   
 >> **item_number** : the total number of items  
 >> **k** : the maximum size of a leaf item set   
->> **epsilon1** : the privacy budget in **Phase 2**  
->> **epsilon2** : the privacy budget in **Phase 4**  
+>> **epsilon1** : the privacy budget used in the **Phase 2** of SAFARI
+>> **epsilon2** : the privacy budget used in the **Phase 4** of SAFARI
 >> **input_file** : the file name of dataset  
 >> **output_file** : the file name of output  
 >> **method** : frequency estimation for multiple attributes ("grr" indicates SAFA is used, "sh" indicates harmony is used)  
@@ -61,21 +61,21 @@ cd ./SAFARI_code/
 - **./include/dataset.h ./bin/dataset.cpp** :  
     synthesizng a ranking dataset, examining the accuracy of the first-order marginals and the second-order marginals of the synthetic ranking dataset
 - **./include/lasso.h ./bin/lasso.cpp** :  
-    implementation of lasso regression model
+    implementation of the lasso regression model
 - **./include/ldp.h ./bin/grr.cpp ./bin/rappor.cpp ./bin/olh.cpp ./bin/sh.cpp** :  
-    implementation of Rappor, SH, OLH and GRR. (rappor.cpp, sh.cpp, olh.cpp and grr.cpp)
+    implementations of the Rappor, SH, OLH and GRR, respectively (rappor.cpp, sh.cpp, olh.cpp and grr.cpp)
 - **./include/util.h ./src/util.cpp** :  
     tripletwise mutual information computation, data structure of rankings (Cantor expansion)
 - **./include/safari.h** :  
-    implementation of SAFARI
+    implementation of the SAFARI approach
     - **./src/safair/phase_one_with_lasso.cpp** :  
-        implementation of the Phase 1 of SAFARI (with lasso regression model)
+        implementation of the Phase 1 of SAFARI (with the lasso regression model)
     - **./src/safair/phase_one.cpp** :  
-        implementation of another version of Phase 1 of SAFARI (without lasso regression model)
+        implementation of another version of the Phase 1 of SAFARI (without the lasso regression model)
     - **./src/safair/learning_hierarchi.cpp** :  
-        implementation of construct the k-thin chain in Phase 2 of SAFARI
+        implementation of the k-thin chain construction in the Phase 2 of SAFARI
     - **./src/safair/phase_two.cpp** :  
-        implementation of Phase 4 and 5 of SAFARI
+        implementation of the Phase 4 and Phase 5 of SAFARI
 - **./src/naive/naive_main.cpp** :  
     main function used for baseline approaches
 - **./src/safari/safari_main.cpp** :  
