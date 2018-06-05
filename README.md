@@ -28,7 +28,7 @@ make clean
 ```
 
 
-## 1) Guideline for running the baseline approaches 
+## 1) Guideline for running the baselines 
 ```bash
 cd ./SAFARI_code/
 ./bin/naive --user_number 1000 --item_number 4 --epsilon 1.0 --input_file ./demo_dataset.txt --output_file out.txt --method rappor
