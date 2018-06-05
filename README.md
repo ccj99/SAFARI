@@ -50,12 +50,12 @@ cd ./SAFARI_code/
 >> **user_number** : the total number of users   
 >> **item_number** : the total number of items  
 >> **k** : the maximum size of a leaf item set   
->> **epsilon1** : the privacy budget in the **Phase 2**  
->> **epsilon2** : the privacy budget in the **Phase 4**  
+>> **epsilon1** : the privacy budget in **Phase 2**  
+>> **epsilon2** : the privacy budget in **Phase 4**  
 >> **input_file** : the file name of dataset  
 >> **output_file** : the file name of output  
->> **method** : frequency estimation for multiple attributes. (e.g., "grr" represents SAFA, "sh" represents harmony)  
->> **use_lasso** : "yes" or "no", which represents whether you use lasso regression model (i.e. **Rule I** or **Rule I***)
+>> **method** : frequency estimation method for multiple attributes ("grr" indicates SAFA is used, "sh" indicates harmony is used)  
+>> **use_lasso** : "yes" or "no", which indicates whether the lasso regression model is used (i.e. **Rule I** or **Rule I***)
 
 # Documentation
 - **./include/dataset.h ./bin/dataset.cpp** :  
