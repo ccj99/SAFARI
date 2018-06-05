@@ -48,7 +48,7 @@ cd ./SAFARI_code/
 ```
 > Explanation of the parameters :  
 >> **user_number** : the total number of users   
->> **item_number** : the number of item in the item set  
+>> **item_number** : the total number of items  
 >> **k** : the maximum size of a leaf item set   
 >> **epsilon1** : the privacy budget in the **Phase 2**  
 >> **epsilon2** : the privacy budget in the **Phase 4**  
