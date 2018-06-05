@@ -14,7 +14,7 @@ using namespace std;
 
 const double eps=1e-6;
 
-void phase_one_with_lasso(RankDataset *real_dataset, double epsilon, char* method,
+void first_collect_with_lasso(RankDataset *real_dataset, double epsilon, char* method,
 				double mI[MAXRANK][MAXRANK][MAXRANK]){
 	printf("\nphase_one with lasso epsilon %f method %s\n", epsilon, method);
 

@@ -44,17 +44,17 @@ cd ./SAFARI_code/
 ## 2) Guideline for running SAFARI
 ```bash
 cd ./SAFARI_code/
-./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method grr --use_lasso yes
+./bin/safari --user_number 1000 --item_number 4 --k 1 --epsilon1 0.5 --epsilon2 0.5 --input_file ./demo_dataset.txt --output_file out.txt --method safa --use_lasso yes
 ```
 > Explanation of the parameters :  
 >> **user_number** : the total number of users   
 >> **item_number** : the total number of items  
 >> **k** : the maximum size of a leaf item set   
->> **epsilon1** : the privacy budget used in the **Phase 2** of SAFARI
->> **epsilon2** : the privacy budget used in the **Phase 4** of SAFARI
+>> **epsilon1** : the privacy budget used in the **Phase 2** of SAFARI  
+>> **epsilon2** : the privacy budget used in the **Phase 4** of SAFARI  
 >> **input_file** : the file name of dataset  
 >> **output_file** : the file name of output  
->> **method** : frequency estimation for multiple attributes ("grr" indicates SAFA is used, "sh" indicates harmony is used)  
+>> **method** : frequency estimation for multiple attributes ("safa" or "harmony")  
 >> **use_lasso** : "yes" or "no", which indicates whether the lasso regression model is used (i.e. **Rule I** or **Rule I***)
 
 # Documentation
@@ -68,13 +68,13 @@ cd ./SAFARI_code/
     tripletwise mutual information computation, data structure of rankings (Cantor expansion)
 - **./include/safari.h** :  
     implementation of the SAFARI approach
-    - **./src/safari/phase_one_with_lasso.cpp** :  
+    - **./src/safari/first_collect_with_lasso.cpp** :  
         implementation of the Phase 1 of SAFARI (with the lasso regression model)
-    - **./src/safari/phase_one.cpp** :  
+    - **./src/safari/first_collect.cpp** :  
         implementation of another version of the Phase 1 of SAFARI (without the lasso regression model)
     - **./src/safari/learning_hierarchi.cpp** :  
         implementation of the k-thin chain construction in the Phase 2 of SAFARI
-    - **./src/safari/phase_two.cpp** :  
+    - **./src/safari/second_collect.cpp** :  
         implementation of the Phases 3-5 of SAFARI
 - **./src/naive/naive_main.cpp** :  
     main function used for the baselines

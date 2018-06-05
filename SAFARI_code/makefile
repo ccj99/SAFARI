@@ -51,13 +51,13 @@ ${SAFARI_BIN_TARGET}:${SAFARI_OBJ}
 ./obj/naive_main.o:./src/naive/naive_main.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 	
-./obj/phase_one.o:./src/safari/phase_one.cpp
+./obj/first_collect.o:./src/safari/first_collect.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 
-./obj/phase_one_with_lasso.o:./src/safari/phase_one_with_lasso.cpp
+./obj/first_collect_with_lasso.o:./src/safari/first_collect_with_lasso.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 	
-./obj/phase_two.o:./src/safari/phase_two.cpp
+./obj/second_collect.o:./src/safari/second_collect.cpp
 	$(CC) $(CFLAGS) -c  $< -o $@
 	
 ./obj/safari_main.o:./src/safari/safari_main.cpp

@@ -33,7 +33,7 @@ void get_other_rank(const vector<int> &left_rank,int item,vector<int> &right_ran
 
 SamplingLdp sldp;			
 
-void phase_two(RankDataset *real_dataset, vector<vector<int> >& hierarchical, 
+void second_collect(RankDataset *real_dataset, vector<vector<int> >& hierarchical, 
 				 double epsilon, char* method, RankDataset *ldp_dataset){
 	printf("\nphase_two epsilon %f method %s\n\n", epsilon, method);
     

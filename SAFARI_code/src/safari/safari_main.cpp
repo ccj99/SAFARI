@@ -37,8 +37,6 @@ int main(int argc, char * argv[])
 {
     while( getopt_long(argc, argv, "", long_options, &option_index)!= -1)
     {
-        printf("%s %s\n", long_options[option_index].name, optarg);
-        
         switch (option_index)
         {
         case 0:
@@ -63,7 +61,10 @@ int main(int argc, char * argv[])
             strcpy(output_file, optarg);
 			break;
 		case 7:
-            strcpy(method, optarg);
+            if( strcmp(optarg, "safa") == 0 )
+				strcpy(method, "grr");
+			else if( strcmp(optarg, "harmony") == 0 )
+				strcpy(method, "sh");
 			break;
 		case 8:
             strcpy(use_lasso, optarg);
@@ -86,9 +87,9 @@ int main(int argc, char * argv[])
     real_dataset.read_file(input_file);
 	
 	if( strcmp(use_lasso, "no") == 0 ){
-		phase_one(&real_dataset, epsilon1, method, mI);
+		first_collect(&real_dataset, epsilon1, method, mI);
     }else if( strcmp(use_lasso, "yes") == 0 ){
-		phase_one_with_lasso(&real_dataset, epsilon1, method, mI);
+		first_collect_with_lasso(&real_dataset, epsilon1, method, mI);
 	}else{
 		fprintf(stderr, "use lasso %s error.\n", use_lasso);
 		return 0;
@@ -96,7 +97,7 @@ int main(int argc, char * argv[])
     vector<vector<int> > hierarchical;
     learning_hierarchical(item_number, k, mI, hierarchical);
 	
-	phase_two(&real_dataset, hierarchical, epsilon2, method, &synthetic_dataset);
+	second_collect(&real_dataset, hierarchical, epsilon2, method, &synthetic_dataset);
     
 	pair<double, double> f1 = first_order(&real_dataset, &synthetic_dataset);
 	pair<double, double> f2 = second_order(&real_dataset, &synthetic_dataset);

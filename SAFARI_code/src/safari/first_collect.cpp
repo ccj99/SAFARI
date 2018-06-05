@@ -17,7 +17,7 @@ int id[MAXRANK][MAXRANK][MAXRANK];
 double px[MAXRANK+3][MAXRANK+3] , py[MAXRANK+3][MAXRANK+3][3];
 
 
-void phase_one(RankDataset *real_dataset, double epsilon, char* method,
+void first_collect(RankDataset *real_dataset, double epsilon, char* method,
 				double mI[MAXRANK][MAXRANK][MAXRANK]){
 	printf("\nphase_one epsilon %f method %s\n", epsilon, method);
 
