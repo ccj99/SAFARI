@@ -77,7 +77,7 @@ cd ./SAFARI_code/
     - **./src/safari/phase_two.cpp** :  
         implementation of the Phase 4 and Phase 5 of SAFARI
 - **./src/naive/naive_main.cpp** :  
-    main function used for baseline approaches
+    main function used for the baselines
 - **./src/safari/safari_main.cpp** :  
     main function used for SAFARI
 
