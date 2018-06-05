@@ -68,13 +68,13 @@ cd ./SAFARI_code/
     tripletwise mutual information computation, data structure of rankings (Cantor expansion)
 - **./include/safari.h** :  
     implementation of the SAFARI approach
-    - **./src/safair/phase_one_with_lasso.cpp** :  
+    - **./src/safari/phase_one_with_lasso.cpp** :  
         implementation of the Phase 1 of SAFARI (with the lasso regression model)
-    - **./src/safair/phase_one.cpp** :  
+    - **./src/safari/phase_one.cpp** :  
         implementation of another version of the Phase 1 of SAFARI (without the lasso regression model)
-    - **./src/safair/learning_hierarchi.cpp** :  
+    - **./src/safari/learning_hierarchi.cpp** :  
         implementation of the k-thin chain construction in the Phase 2 of SAFARI
-    - **./src/safair/phase_two.cpp** :  
+    - **./src/safari/phase_two.cpp** :  
         implementation of the Phase 4 and Phase 5 of SAFARI
 - **./src/naive/naive_main.cpp** :  
     main function used for baseline approaches
