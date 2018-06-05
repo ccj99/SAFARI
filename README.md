@@ -75,7 +75,7 @@ cd ./SAFARI_code/
     - **./src/safari/learning_hierarchi.cpp** :  
         implementation of the k-thin chain construction in the Phase 2 of SAFARI
     - **./src/safari/phase_two.cpp** :  
-        implementation of the Phase 4 and Phase 5 of SAFARI
+        implementation of the Phases 3-5 of SAFARI
 - **./src/naive/naive_main.cpp** :  
     main function used for the baselines
 - **./src/safari/safari_main.cpp** :  
