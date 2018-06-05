@@ -54,7 +54,7 @@ cd ./SAFARI_code/
 >> **epsilon2** : the privacy budget in **Phase 4**  
 >> **input_file** : the file name of dataset  
 >> **output_file** : the file name of output  
->> **method** : frequency estimation method for multiple attributes ("grr" indicates SAFA is used, "sh" indicates harmony is used)  
+>> **method** : frequency estimation for multiple attributes ("grr" indicates SAFA is used, "sh" indicates harmony is used)  
 >> **use_lasso** : "yes" or "no", which indicates whether the lasso regression model is used (i.e. **Rule I** or **Rule I***)
 
 # Documentation
